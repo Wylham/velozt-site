@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #111827;
+  --color-ink-soft: #4b5563;
+  --color-ink-mute: #6b7280;
+  --color-line: #e3e9f2;
+  --color-mist: #f5f8fc;
+  --color-brand-50: #eef4ff;
+  --color-brand-100: #dbe8ff;
+  --color-brand-200: #b8d2ff;
+  --color-brand-500: #0879e8;
+  --color-brand-600: #0a5fd6;
+  --color-brand-700: #0042bf;
+  --color-brand-900: #0b1f5c;
+  --color-aqua: #00b8e8;
+  --color-ok: #0e9f6e;
+  --shadow-soft: 0 1px 2px rgb(17 24 39 / 0.04), 0 8px 24px -10px rgb(17 24 39 / 0.1);
+  --shadow-lift: 0 2px 6px rgb(17 24 39 / 0.05), 0 32px 64px -24px rgb(0 66 191 / 0.35);
+}
+
+@theme inline {
+  --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: #fff;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; text-wrap: balance; }
+p { text-wrap: pretty; }
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.bg-brand-gradient {
+  background: linear-gradient(115deg, #0039be 0%, #0879e8 58%, #00b8e8 100%);
+}
+.text-brand-gradient {
+  background: linear-gradient(115deg, #0042bf, #0879e8 60%, #00a8e0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Corte diagonal inspirado no traço da logo (~36°). */
+.cut-top { clip-path: polygon(0 var(--cut, 5vw), 100% 0, 100% 100%, 0 100%); }
+.cut-both { clip-path: polygon(0 var(--cut, 5vw), 100% 0, 100% calc(100% - var(--cut, 5vw)), 0 100%); }
+
+/* Abertura da página: única sequência orquestrada (hero). */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+.anim-rise { animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--d, 0ms); }
+
+/* Accordion: altura animada sem JS de medição. */
+.acc-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.28s ease; }
+.acc-panel[data-open="true"] { grid-template-rows: 1fr; }
+.acc-panel > div { overflow: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
