@@ -29,7 +29,7 @@ export function Header() {
     <header className={`sticky top-0 z-50 bg-white/85 backdrop-blur-md transition-shadow ${scrolled || open ? "shadow-[0_1px_0_var(--color-line)]" : ""}`}>
       <Container className="flex h-[68px] items-center justify-between">
         <a href="/#inicio" aria-label="Velozt, ir para o início" className="shrink-0">
-          <Logo height={20} />
+          <Logo height={28} />
         </a>
         <nav aria-label="Principal" className="hidden items-center gap-8 lg:flex">
           {site.nav.map((n) => (

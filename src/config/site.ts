@@ -2,7 +2,7 @@ export const site = {
   name: "Velozt",
   url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   tagline: "Gestão inteligente para o seu restaurante.",
-  title: "Velozt | PDV e gestão para restaurantes",
+  title: "Velozt: PDV e gestão para food services",
   description:
     "Centralize mesas, comandas, pedidos, produção, pagamentos e controle de caixa em uma plataforma de PDV desenvolvida para o Food Service.",
   // Só aparece no site o que estiver preenchido (veja .env.example).

@@ -28,7 +28,8 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary", title: site.title, description: site.description },
   icons: {
-    icon: "/brand/icongradient-velozt.webp",
+    icon: [{ url: "/brand//icon.png", type: "image/x-icon", sizes: "any" }],
+    shortcut: "/brand/icon.png",
   },
 };
 
