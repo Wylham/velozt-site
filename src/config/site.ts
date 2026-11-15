@@ -16,8 +16,8 @@ export const site = {
   ].filter((s) => s.href),
   nav: [
     { label: "Início", href: "/#inicio" },
+    { label: "Soluções", href: "/solucoes/salao-e-comandas" },
     { label: "Plataforma", href: "/#plataforma" },
-    { label: "Funcionalidades", href: "/#funcionalidades" },
     { label: "Diferenciais", href: "/#diferenciais" },
     { label: "Contato", href: "/#contato" },
   ],

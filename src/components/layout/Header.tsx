@@ -1,15 +1,17 @@
 "use client";
 
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { site } from "@/config/site";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/ui/Logo";
+import { solutions } from "@/content/solutions";
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [solutionsOpen, setSolutionsOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -34,14 +36,41 @@ export function Header() {
           <Logo height={28} />
         </a>
         <nav aria-label="Principal" className="hidden items-center gap-8 lg:flex">
-          {site.nav.map((n) => (
-            <a
+          {site.nav.map((n) => n.label === "Soluções" ? (
+            <div
               key={n.href}
-              href={n.href}
-              className="text-[14.5px] font-medium text-ink-soft transition hover:text-brand-700"
+              className="relative"
+              onMouseEnter={() => setSolutionsOpen(true)}
+              onMouseLeave={() => setSolutionsOpen(false)}
+              onFocus={() => setSolutionsOpen(true)}
+              onBlur={(event) => {
+                if (!event.currentTarget.contains(event.relatedTarget as Node)) setSolutionsOpen(false);
+              }}
             >
-              {n.label}
-            </a>
+              <button
+                type="button"
+                className="flex items-center gap-1 text-[14.5px] font-medium text-ink-soft transition hover:text-brand-700"
+                aria-expanded={solutionsOpen}
+                aria-haspopup="true"
+                onClick={() => setSolutionsOpen(true)}
+              >
+                Soluções <ChevronDown className={`size-4 transition-transform ${solutionsOpen ? "rotate-180" : ""}`} />
+              </button>
+              {solutionsOpen && (
+                <div className="absolute left-1/2 top-full z-20 w-64 -translate-x-1/2 pt-3">
+                  <div className="rounded-2xl border border-line bg-white p-2 shadow-lift">
+                    {solutions.map(({ slug, navLabel, icon: Icon }) => (
+                    <a key={slug} href={`/solucoes/${slug}`} className="flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-semibold text-ink transition hover:bg-brand-50 hover:text-brand-700" onClick={() => setSolutionsOpen(false)}>
+                      <span className="grid size-8 shrink-0 place-items-center rounded-lg bg-brand-50 text-brand-700"><Icon className="size-4" /></span>
+                      {navLabel}
+                    </a>
+                  ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
+            <a key={n.href} href={n.href} className="text-[14.5px] font-medium text-ink-soft transition hover:text-brand-700">{n.label}</a>
           ))}
         </nav>
         <div className="flex items-center gap-2">
@@ -65,15 +94,15 @@ export function Header() {
       {open && (
         <nav id="menu-mobile" aria-label="Principal (mobile)" className="border-t border-line bg-white lg:hidden">
           <Container className="flex flex-col py-3">
-            {site.nav.map((n) => (
-              <a
-                key={n.href}
-                href={n.href}
-                onClick={() => setOpen(false)}
-                className="border-b border-line/70 py-3.5 text-[16px] font-medium"
-              >
-                {n.label}
-              </a>
+            {site.nav.map((n) => n.label === "Soluções" ? (
+              <details key={n.href} className="group border-b border-line/70">
+                <summary className="flex cursor-pointer list-none items-center justify-between py-3.5 text-[16px] font-medium marker:content-none">Soluções <ChevronDown className="size-4 transition-transform group-open:rotate-180" /></summary>
+                <div className="-mt-1 space-y-1 pb-3 pl-3">
+                  {solutions.map(({ slug, navLabel }) => <a key={slug} href={`/solucoes/${slug}`} onClick={() => setOpen(false)} className="block rounded-lg px-3 py-2.5 text-[15px] text-ink-soft hover:bg-brand-50 hover:text-brand-700">{navLabel}</a>)}
+                </div>
+              </details>
+            ) : (
+              <a key={n.href} href={n.href} onClick={() => setOpen(false)} className="border-b border-line/70 py-3.5 text-[16px] font-medium">{n.label}</a>
             ))}
             <ButtonLink href="/#contato" className="mt-4 w-full">
               Solicitar demonstração

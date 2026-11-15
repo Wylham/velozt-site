@@ -1,5 +1,6 @@
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { ContentScroll } from "@/components/ui/ContentScroll";
 import { Audience } from "@/components/sections/Audience";
 import { Devices } from "@/components/sections/Devices";
 import { Differentials } from "@/components/sections/Differentials";
@@ -46,6 +47,7 @@ export default function Home() {
       </a>
       <Header />
       <main id="conteudo">
+        <ContentScroll />
         <Hero />
         <Platform />
         <Features />
