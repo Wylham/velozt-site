@@ -28,15 +28,19 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary", title: site.title, description: site.description },
   icons: {
-    icon: [{ url: "/brand//icon.png", type: "image/x-icon", sizes: "any" }],
-    shortcut: "/brand/icon.png",
+    icon: { url: "/brand/icone2-velozt.svg", type: "image/svg+xml" },
+    shortcut: "/brand/icone2-velozt.svg",
+    apple: "/brand/icon.png",
   },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#ffffff",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

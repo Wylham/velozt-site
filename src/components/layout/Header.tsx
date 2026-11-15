@@ -26,18 +26,30 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className={`sticky top-0 z-50 bg-white/85 backdrop-blur-md transition-shadow ${scrolled || open ? "shadow-[0_1px_0_var(--color-line)]" : ""}`}>
+    <header
+      className={`sticky top-0 z-50 bg-white/85 backdrop-blur-md transition-shadow ${scrolled || open ? "shadow-[0_1px_0_var(--color-line)]" : ""}`}
+    >
       <Container className="flex h-[68px] items-center justify-between">
         <a href="/#inicio" aria-label="Velozt, ir para o início" className="shrink-0">
           <Logo height={28} />
         </a>
         <nav aria-label="Principal" className="hidden items-center gap-8 lg:flex">
           {site.nav.map((n) => (
-            <a key={n.href} href={n.href} className="text-[14.5px] font-medium text-ink-soft transition hover:text-brand-700">{n.label}</a>
+            <a
+              key={n.href}
+              href={n.href}
+              className="text-[14.5px] font-medium text-ink-soft transition hover:text-brand-700"
+            >
+              {n.label}
+            </a>
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <div className="hidden sm:block"><ButtonLink href="/#contato" size="sm">Solicitar demonstração</ButtonLink></div>
+          <div className="hidden sm:block">
+            <ButtonLink href="/#contato" size="sm">
+              Solicitar demonstração
+            </ButtonLink>
+          </div>
           <button
             type="button"
             className="grid size-11 place-items-center rounded-xl border border-line lg:hidden"
@@ -54,9 +66,18 @@ export function Header() {
         <nav id="menu-mobile" aria-label="Principal (mobile)" className="border-t border-line bg-white lg:hidden">
           <Container className="flex flex-col py-3">
             {site.nav.map((n) => (
-              <a key={n.href} href={n.href} onClick={() => setOpen(false)} className="border-b border-line/70 py-3.5 text-[16px] font-medium">{n.label}</a>
+              <a
+                key={n.href}
+                href={n.href}
+                onClick={() => setOpen(false)}
+                className="border-b border-line/70 py-3.5 text-[16px] font-medium"
+              >
+                {n.label}
+              </a>
             ))}
-            <ButtonLink href="/#contato" className="mt-4 w-full">Solicitar demonstração</ButtonLink>
+            <ButtonLink href="/#contato" className="mt-4 w-full">
+              Solicitar demonstração
+            </ButtonLink>
           </Container>
         </nav>
       )}
