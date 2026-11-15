@@ -18,7 +18,7 @@ export function Hero() {
     <section id="inicio" className="relative overflow-hidden pb-20 pt-10 lg:pb-28 lg:pt-16">
       <Container className="relative grid items-center gap-14 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:gap-10">
         <div>
-          <h1 className="text-[2.6rem] font-semibold leading-[1.06] sm:text-5xl lg:text-[3.4rem]">
+          <h1 className="font-hero text-[2.6rem] font-semibold leading-[1.06] sm:text-5xl lg:text-[3.4rem]">
             Seu restaurante merece uma gestão mais inteligente.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">

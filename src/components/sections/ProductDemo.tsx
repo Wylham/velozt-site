@@ -22,7 +22,7 @@ export function ProductDemo() {
   return (
     <section aria-labelledby="demo-titulo" className="bg-mist py-24 lg:py-32">
       <Container>
-        <SectionHeading id="demo-titulo" title="Veja como a Velozt simplifica a operação." />
+        <SectionHeading id="demo-titulo" title="Veja a Velozt simplificar sua operação." />
         <TabList
           items={tabs}
           value={active}

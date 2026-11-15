@@ -1,10 +1,17 @@
 import type { Metadata, Viewport } from "next";
 import { Instrument_Sans, Sora } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { site } from "@/config/site";
 
 const display = Sora({ subsets: ["latin"], variable: "--font-sora", display: "swap" });
 const body = Instrument_Sans({ subsets: ["latin"], variable: "--font-instrument", display: "swap" });
+const hero = localFont({
+  src: "../font/LeniaSans-SemiBold.ttf",
+  variable: "--font-lenia",
+  display: "swap",
+  weight: "600",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -33,7 +40,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${display.variable} ${body.variable}`}>
+    <html lang="pt-BR" className={`${display.variable} ${body.variable} ${hero.variable}`}>
       <body>{children}</body>
     </html>
   );

@@ -15,7 +15,7 @@ export function Features() {
   return (
     <section id="funcionalidades" aria-labelledby="funcionalidades-titulo" className="py-24 lg:py-32">
       <Container>
-        <SectionHeading id="funcionalidades-titulo" title="Tudo o que a rotina do salão precisa, em um só lugar." />
+        <SectionHeading id="funcionalidades-titulo" title="Tudo para a rotina do salão, em um só lugar." />
         <div className="mt-14 grid gap-8 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-12">
           <TabList
             items={features.map((f) => ({ id: f.id, label: f.label, icon: <f.icon className="size-[18px] shrink-0" aria-hidden /> }))}

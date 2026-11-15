@@ -13,15 +13,17 @@ export function Devices() {
   return (
     <section aria-labelledby="dispositivos-titulo" className="overflow-hidden py-24 lg:py-32">
       <Container>
-        <SectionHeading id="dispositivos-titulo" title="Liberdade para acompanhar a operação.">
+        <SectionHeading id="dispositivos-titulo" title="Liberdade para acompanhar sua operação.">
           Acompanhe e registre pedidos utilizando diferentes dispositivos, com uma experiência pensada para a rotina de atendimento.
         </SectionHeading>
 
         {/* Composição: desktop sobreposta; mobile empilhada */}
         <div className="relative mt-16 hidden md:block md:pb-6">
           <LaptopFrame className="w-[70%]" />
-          <TabletFrame className="absolute right-0 top-[14%] w-[36%]" />
-          <PhoneFrame className="absolute bottom-0 right-[27%] w-[15%] min-w-[120px]" />
+          <div className="absolute right-0 top-[14%] flex w-[36%] items-end gap-[5%]">
+            <TabletFrame className="w-[70%]" />
+            <PhoneFrame className="w-[25%] shrink-0" />
+          </div>
         </div>
         <div className="mt-12 grid gap-10 md:hidden">
           <LaptopFrame />

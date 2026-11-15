@@ -27,7 +27,7 @@ export function Security() {
     { what: `Desconto de ${discounts[0].pct}%`, meta: `${discounts[0].operator} · autorizado por ${discounts[0].authorizedBy}`, time: discounts[0].time, term: "PDV 01" },
   ];
   return (
-    <section aria-labelledby="seguranca-titulo" className="cut-top relative overflow-hidden bg-ink pb-24 pt-[calc(6rem_+_5vw)] text-white lg:pb-32" style={{ "--cut": "5vw" } as React.CSSProperties}>
+    <section aria-labelledby="seguranca-titulo" className="relative overflow-hidden bg-ink py-24 text-white lg:py-32">
       <Container className="relative grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-center">
         <div>
           <SectionHeading id="seguranca-titulo" title="Mais controle sobre cada operação." invert>
