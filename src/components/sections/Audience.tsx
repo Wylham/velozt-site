@@ -1,27 +1,32 @@
-import { Beer, Coffee, Store, Utensils, type LucideIcon } from "lucide-react";
+import { Beef, Beer, Flame, Pizza, Utensils, type LucideIcon } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const audiences: { icon: LucideIcon; title: string; text: string }[] = [
   {
     icon: Utensils,
-    title: "Restaurantes e bistrôs",
+    title: "Restaurantes, bistrôs e self-service",
     text: "Mesas, comandas, pedidos e pagamentos organizados do salão ao caixa.",
   },
   {
     icon: Beer,
     title: "Bares, pubs e gastrobares",
-    text: "Controle ágil de comandas, divisão de contas e acompanhamento do atendimento.",
+    text: "Comandas ágeis, divisão de contas e atendimento fluido até o fechamento.",
   },
   {
-    icon: Coffee,
-    title: "Lanchonetes, cafeterias e operações rápidas",
-    text: "Mais velocidade no pedido, na produção e na retirada, mesmo em horários de pico.",
+    icon: Beef,
+    title: "Hamburguerias, lanchonetes, padarias e cafeterias",
+    text: "Pedidos personalizados, adicionais e agilidade da produção à retirada.",
   },
   {
-    icon: Store,
-    title: "Praças de alimentação e operações de alto volume",
-    text: "Pedidos enviados por setor e uma rotina mais fluida para atender mais sem perder o controle.",
+    icon: Pizza,
+    title: "Pizzarias",
+    text: "Sabores, tamanhos, meios a meios e pedidos organizados em cada turno.",
+  },
+  {
+    icon: Flame,
+    title: "Churrascarias, praças de alimentação e alto volume",
+    text: "Mais controle do salão e dos pedidos, mesmo nos horários de maior movimento.",
   },
 ];
 
