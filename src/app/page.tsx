@@ -9,8 +9,6 @@ import { Features } from "@/components/sections/Features";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { Hero } from "@/components/sections/Hero";
 import { Platform } from "@/components/sections/Platform";
-import { ProductDemo } from "@/components/sections/ProductDemo";
-import { Security } from "@/components/sections/Security";
 import { faqs } from "@/content";
 import { site } from "@/config/site";
 
@@ -51,11 +49,9 @@ export default function Home() {
         <Hero />
         <Platform />
         <Features />
-        <Security />
         <Devices />
         <Audience />
         <Differentials />
-        <ProductDemo />
         <Faq />
         <FinalCta />
       </main>
