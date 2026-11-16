@@ -1,12 +1,28 @@
-import { LayoutGrid, Receipt, Store, Utensils, type LucideIcon } from "lucide-react";
+import { Beer, Coffee, Store, Utensils, type LucideIcon } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const audiences: { icon: LucideIcon; title: string; text: string }[] = [
-  { icon: Utensils, title: "Restaurantes", text: "Atendimento, pedidos, produção e caixa organizados em uma única plataforma." },
-  { icon: LayoutGrid, title: "Restaurantes com atendimento em mesas", text: "Mapa de mesas, múltiplas comandas e acompanhamento do status de cada mesa." },
-  { icon: Receipt, title: "Estabelecimentos com comandas", text: "Comandas individuais, transferência de itens e fechamento com pagamentos fracionados." },
-  { icon: Store, title: "Operações de alimentação com atendimento presencial", text: "Pedidos enviados por setor e informações operacionais para acompanhar a rotina." },
+  {
+    icon: Utensils,
+    title: "Restaurantes e bistrôs",
+    text: "Mesas, comandas, pedidos e pagamentos organizados do salão ao caixa.",
+  },
+  {
+    icon: Beer,
+    title: "Bares, pubs e gastrobares",
+    text: "Controle ágil de comandas, divisão de contas e acompanhamento do atendimento.",
+  },
+  {
+    icon: Coffee,
+    title: "Lanchonetes, cafeterias e operações rápidas",
+    text: "Mais velocidade no pedido, na produção e na retirada, mesmo em horários de pico.",
+  },
+  {
+    icon: Store,
+    title: "Praças de alimentação e operações de alto volume",
+    text: "Pedidos enviados por setor e uma rotina mais fluida para atender mais sem perder o controle.",
+  },
 ];
 
 export function Audience() {
@@ -17,7 +33,7 @@ export function Audience() {
         <ul className="divide-y divide-white/15 border-y border-white/15">
           {audiences.map(({ icon: Icon, title, text }) => (
             <li key={title} className="flex items-start gap-5 py-7">
-              <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-white/10 text-aqua ring-1 ring-white/10"><Icon className="size-[22px]" aria-hidden /></span>
+              <Icon className="mt-1 size-[22px] shrink-0 text-aqua" aria-hidden />
               <div>
                 <h3 className="text-xl font-semibold leading-snug">{title}</h3>
                 <p className="mt-1.5 max-w-lg text-[15.5px] leading-relaxed text-white/70">{text}</p>
