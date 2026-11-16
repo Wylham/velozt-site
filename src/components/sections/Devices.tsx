@@ -18,29 +18,27 @@ export function Devices() {
         </SectionHeading>
 
         {/* Composição: desktop sobreposta; mobile empilhada */}
-        <div className="relative mt-16 hidden md:block md:pb-6">
-          <LaptopFrame className="w-[70%]" />
-          <div className="absolute right-0 top-[14%] flex w-[36%] items-end gap-[5%]">
-            <TabletFrame className="w-[70%]" />
-            <PhoneFrame className="w-[25%] shrink-0" />
-          </div>
+        <div className="mx-auto mt-16 hidden max-w-[1180px] items-end justify-center gap-[2%] md:flex">
+          <LaptopFrame className="w-[58%] shrink-0" />
+          <TabletFrame className="w-[24%] shrink-0" />
+          <PhoneFrame className="w-[11%] shrink-0" />
         </div>
         <div className="mt-12 grid gap-10 md:hidden">
           <LaptopFrame />
-          <div className="flex items-end gap-5">
-            <TabletFrame className="w-[62%]" />
+          <div className="flex items-end justify-center gap-2">
+            <TabletFrame className="w-[64%]" />
             <PhoneFrame className="w-[34%]" />
           </div>
         </div>
 
-        <ul className="mt-12 flex flex-wrap gap-x-10 gap-y-3">
+        <ul className="mt-12 flex flex-wrap justify-center gap-x-10 gap-y-3">
           {labels.map(({ icon: Icon, title }) => (
             <li key={title} className="flex items-center gap-2.5 text-[15.5px] font-medium text-ink-soft">
               <Icon className="size-5 text-brand-500" aria-hidden />{title}
             </li>
           ))}
         </ul>
-        <p className="mt-4 text-[13px] text-ink-mute">Telas ilustrativas com dados demonstrativos.</p>
+        <p className="mt-4 text-center text-[13px] text-ink-mute">Telas ilustrativas com dados demonstrativos.</p>
       </Container>
     </section>
   );
