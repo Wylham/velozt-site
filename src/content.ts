@@ -49,7 +49,7 @@ export const features: Feature[] = [
 ];
 
 export const faqs = [
-  { q: "O que é a Velozt?", a: "A Velozt é uma plataforma de PDV e gestão operacional para Food Service. Ela reúne mesas, comandas, pedidos, produção, pagamentos e controle de caixa em um só lugar." },
+  { q: "O que é a Velozt?", a: "A Velozt é uma plataforma de PDV e gestão para Food Service. Ela reúne mesas, comandas, pedidos, produção, pagamentos, clientes, estoque e financeiro em um só lugar." },
   { q: "Para quais estabelecimentos a plataforma é indicada?", a: "Para restaurantes que trabalham com atendimento em mesas e comandas, e para operações de alimentação com atendimento presencial." },
   { q: "Como funciona o gerenciamento de mesas e comandas?", a: "Você abre e acompanha as mesas, pode ter várias comandas na mesma mesa ou comandas individuais, transferir itens e comandas entre mesas e acompanhar o status de cada mesa." },
   { q: "É possível dividir uma conta?", a: "Sim. A Velozt permite dividir contas, receber pagamentos fracionados e registrar diferentes formas de pagamento, com cálculo de troco e pré-conta para conferência." },

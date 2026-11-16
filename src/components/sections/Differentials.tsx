@@ -19,6 +19,8 @@ const visuals: Record<string, ReactNode> = {
       <Pill>Pedidos</Pill>
       <Pill>Produção</Pill>
       <Pill>Caixa</Pill>
+      <Pill>Estoque</Pill>
+      <Pill>Financeiro</Pill>
       <Pill on>Velozt</Pill>
     </div>
   ),
@@ -97,6 +99,33 @@ const visuals: Record<string, ReactNode> = {
       ))}
     </div>
   ),
+  clientes: (
+    <div className="space-y-2" aria-hidden>
+      {[
+        ["Mariana Costa", "12 pedidos"],
+        ["Ricardo Alves", "8 pedidos"],
+      ].map(([name, orders]) => (
+        <div key={name} className="flex items-center justify-between rounded-lg border border-line bg-white px-3 py-2 text-[12px]">
+          <span className="font-medium text-ink">{name}</span>
+          <span className="text-ink-mute">{orders}</span>
+        </div>
+      ))}
+    </div>
+  ),
+  estoque: (
+    <div className="space-y-2" aria-hidden>
+      <div className="flex items-center justify-between text-[12px] text-ink-soft"><span>Insumos</span><span className="font-medium text-ok">+ 48 un.</span></div>
+      <div className="flex items-center justify-between text-[12px] text-ink-soft"><span>Saídas de hoje</span><span className="font-medium text-brand-700">- 26 un.</span></div>
+      <div className="h-2 overflow-hidden rounded-full bg-brand-100"><i className="block h-full w-[64%] rounded-full bg-brand-gradient" /></div>
+    </div>
+  ),
+  financeiro: (
+    <div className="space-y-2.5" aria-hidden>
+      <div className="flex items-center justify-between text-[12px]"><span className="text-ink-soft">A receber</span><span className="font-medium text-ok">R$ 8.420</span></div>
+      <div className="flex items-center justify-between text-[12px]"><span className="text-ink-soft">A pagar</span><span className="font-medium text-ink">R$ 3.180</span></div>
+      <div className="border-t border-line pt-2 text-[12px] font-medium text-brand-700">Fluxo de caixa positivo</div>
+    </div>
+  ),
 };
 
 const items: { key: string; title: string; text: string; span: string }[] = [
@@ -142,13 +171,33 @@ const items: { key: string; title: string; text: string; span: string }[] = [
     text: "Relatórios de vendas, formas de pagamento, cancelamentos e caixa.",
     span: "lg:col-span-3",
   },
+  {
+    key: "clientes",
+    title: "Clientes que viram relacionamento",
+    text: "Cadastre clientes, mantenha informações organizadas e conheça melhor quem escolhe seu estabelecimento.",
+    span: "lg:col-span-2",
+  },
+  {
+    key: "estoque",
+    title: "Estoque sob controle",
+    text: "Registre entradas e saídas para acompanhar insumos, reduzir perdas e planejar compras com mais segurança.",
+    span: "lg:col-span-2",
+  },
+  {
+    key: "financeiro",
+    title: "Financeiro que acompanha o seu ritmo",
+    text: "Organize contas a pagar, contas a receber e fluxo de caixa para enxergar a saúde do negócio com clareza.",
+    span: "lg:col-span-2",
+  },
 ];
 
 export function Differentials() {
   return (
     <section id="diferenciais" aria-labelledby="diferenciais-titulo" className="py-24 lg:py-32">
       <Container>
-        <SectionHeading id="diferenciais-titulo" title="Gestão organizada em cada detalhe." />
+        <SectionHeading id="diferenciais-titulo" title="Gestão organizada em cada detalhe.">
+          Da rotina do salão ao financeiro, a Velozt conecta o que move seu Food Service para você operar melhor e crescer com segurança.
+        </SectionHeading>
         <ul className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-6">
           {items.map((d) => (
             <li

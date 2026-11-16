@@ -45,7 +45,7 @@ export function Hero() {
             <span className="block">faturarem mais!</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
-            Centralize mesas, comandas, pedidos e pagamentos em uma plataforma desenvolvida para simplificar a rotina do Food Service.
+            Centralize atendimento, pedidos, estoque e financeiro em uma plataforma desenvolvida para simplificar e fazer crescer o seu Food Service.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href="#plataforma" variant="secondary">Conhecer a plataforma</ButtonLink>

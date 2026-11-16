@@ -30,8 +30,8 @@ export function Platform() {
     <section id="plataforma" aria-labelledby="plataforma-titulo" className="bg-mist py-24 lg:py-32">
       <Container>
         <SectionHeading id="plataforma-titulo" title="Operação conectada, gestão organizada.">
-          A Velozt reúne as principais etapas da operação do food service em uma única plataforma. Do atendimento ao
-          fechamento do caixa, tenha mais organização, visibilidade e controle sobre a rotina do estabelecimento.
+          A Velozt reúne a operação e a gestão do Food Service em uma única plataforma. Do atendimento ao fechamento
+          do caixa, do estoque ao financeiro, tenha mais visibilidade e controle sobre o seu estabelecimento.
         </SectionHeading>
 
         <ol className="mt-16 border-y border-line md:grid md:grid-cols-4">
