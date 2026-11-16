@@ -28,9 +28,9 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary", title: site.title, description: site.description },
   icons: {
-    icon: { url: "/brand/icone2-velozt.svg", type: "image/svg+xml" },
-    shortcut: "/brand/icone2-velozt.svg",
-    apple: "/brand/icon.png",
+    icon: { url: "/brand/icone3-velozt.svg", type: "image/svg+xml" },
+    shortcut: "/brand/icone3-velozt.svg",
+    apple: "/brand/icone3-velozt.svg",
   },
 };
 
