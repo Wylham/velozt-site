@@ -62,8 +62,8 @@ export function Header() {
                   {solutionsOpen && (
                     <div className="absolute left-0 top-full z-20 w-[248px] pt-3">
                       <div className="overflow-hidden rounded-2xl border border-line bg-white p-1.5 shadow-lift">
-                        <p className="border-b border-line px-3.5 py-2 text-[11px] font-bold uppercase tracking-[0.08em] text-ink-mute">
-                          M{"\u00f3"}dulos
+                        <p className="border-b border-line px-3.5 py-2 text-[13px] font-bold tracking-[0.08em] text-ink-mute">
+                          Módulos
                         </p>
                         <div className="py-1">
                           {solutions.map(({ slug, navLabel }) => (

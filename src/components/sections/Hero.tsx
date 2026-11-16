@@ -1,5 +1,8 @@
+"use client";
+
 import type { CSSProperties } from "react";
 import { Check, Send } from "lucide-react";
+import { useEffect, useState } from "react";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { PanelFrame } from "@/components/mockups/DeviceFrames";
@@ -11,15 +14,35 @@ import { brl } from "@/lib/format";
 
 const delay = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
+const businesses = ["Hamburguerias", "Pizzarias", "Lanchonetes", "Churrascarias", "Padarias", "Restaurantes"];
+
 export function Hero() {
   const mesa9 = tabs.find((t) => t.table === 9)!;
   const comanda = tabsOf(4)[1];
+  const [businessIndex, setBusinessIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setBusinessIndex((current) => (current + 1) % businesses.length);
+    }, 2000);
+
+    return () => window.clearInterval(interval);
+  }, []);
   return (
-    <section id="inicio" className="relative overflow-hidden pb-20 pt-10 lg:pb-28 lg:pt-16">
-      <Container className="relative grid items-center gap-14 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:gap-10">
+    <section id="inicio" className="relative flex min-h-[calc(100svh-70px)] items-center overflow-hidden pb-20 pt-10 lg:pb-28 lg:pt-16">
+      <Container className="hero-content relative grid items-center gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-10">
         <div>
-          <h1 className="font-hero text-[2.6rem] font-semibold leading-[1.06] sm:text-5xl lg:text-[3.4rem]">
+          <h1 className="hero-title font-hero text-[2.6rem] font-semibold leading-[1.06] sm:text-5xl lg:text-[3.4rem]">
+            {/*
             Seu restaurante merece uma gestão mais inteligente.
+            */}
+            <span className="block">A tecnologia que faz</span>
+            <span className="mt-1 block overflow-hidden pb-[0.12em] text-brand-700" aria-live="polite">
+              <span key={businesses[businessIndex]} className="hero-business block">
+                {businesses[businessIndex]}
+              </span>
+            </span>
+            <span className="block">faturarem mais!</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
             Centralize mesas, comandas, pedidos e pagamentos em uma plataforma desenvolvida para simplificar a rotina do Food Service.

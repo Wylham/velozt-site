@@ -86,6 +86,51 @@ p {
     animation-delay: var(--d, 0ms);
 }
 
+@keyframes hero-business-in {
+    from {
+        opacity: 0;
+        transform: translateY(0.55em);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-business {
+    position: relative;
+    isolation: isolate;
+    width: fit-content;
+    animation: hero-business-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-business::after {
+    position: absolute;
+    z-index: -1;
+    right: -2%;
+    bottom: 0.02em;
+    left: -2%;
+    height: 0.09em;
+    content: "";
+    border-radius: 80% 18% 70% 25%;
+    background: linear-gradient(96deg, #0879e8 0%, #00b8e8 42%, #0879e8 100%);
+    opacity: 0.82;
+    transform: rotate(-1.7deg);
+}
+
+/* Em telas amplas, o hero cresce de forma contínua, sem salto de breakpoint. */
+@media (min-width: 1024px) {
+    .hero-content {
+        max-width: clamp(1200px, calc(50vw + 390px), 1500px);
+        column-gap: clamp(2.5rem, calc(1.25rem + 2vw), 4rem);
+    }
+
+    .hero-title {
+        font-size: clamp(3.4rem, calc(2.68rem + 1.125vw), 4rem);
+    }
+}
+
 /* Accordion: altura animada sem JS de medição. */
 .acc-panel {
     display: grid;
