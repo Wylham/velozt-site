@@ -9,7 +9,13 @@ export function Footer() {
     <footer className="border-t border-line bg-white">
       <Container className="grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <Logo height={20} />
+          <a
+            href="#inicio"
+            aria-label="Voltar ao inÃ­cio"
+            className="inline-block rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-4"
+          >
+            <Logo height={20} />
+          </a>
           <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-ink-soft">
             Plataforma de PDV e gestão operacional para Food Service, que conecta atendimento, pedidos, produção, pagamentos e controle de caixa.
           </p>
