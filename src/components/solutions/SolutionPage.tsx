@@ -1,4 +1,6 @@
-import { ArrowRight, Check, CircleHelp, ImageIcon } from "lucide-react";
+import Image from "next/image";
+import { ArrowLeft, ArrowRight, Check, CircleHelp, FileCheck2, Package, WalletCards } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import type { Solution } from "@/content/solutions";
 import { solutions } from "@/content/solutions";
 import { ScreenPanel } from "@/components/mockups/DeviceFrames";
@@ -7,31 +9,38 @@ import { ButtonLink } from "@/components/ui/Button";
 
 function PhotoSlot({ solution }: { solution: Solution }) {
   return (
-    <div className="relative min-h-[310px] overflow-hidden rounded-2xl border border-brand-100 bg-[radial-gradient(circle_at_25%_15%,#dbe8ff,transparent_42%),linear-gradient(135deg,#f5f8fc,#e9f3ff)] p-6 sm:min-h-[380px] sm:p-9">
-      <div className="absolute inset-x-6 top-6 rounded-xl border border-dashed border-brand-200 bg-white/65 p-4 text-center text-[13px] text-ink-mute backdrop-blur-sm sm:inset-x-9 sm:top-9">
-        <ImageIcon className="mx-auto mb-1 size-4 text-brand-600" />
-        Foto a inserir: <code className="font-semibold text-ink">/public/images/solucoes/{solution.imageFile}</code>
-      </div>
-      <div className="absolute -bottom-16 -right-12 h-72 w-72 rounded-full bg-aqua/15 blur-3xl" />
-      <div className="absolute bottom-0 left-[8%] w-[82%] translate-y-[24%] rotate-[-5deg]">
-        <ScreenPanel screen={solution.screen} />
-      </div>
+    <div className="relative min-h-[310px] overflow-hidden rounded-2xl border border-brand-100 bg-brand-950 sm:min-h-[380px]">
+      <Image
+        src={`/images/solucoes/${solution.imageFile}`}
+        alt={solution.imageAlt}
+        fill
+        priority
+        sizes="(min-width: 1024px) 52vw, 100vw"
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-brand-950/45 via-transparent to-brand-950/10" aria-hidden />
     </div>
   );
 }
 
 export function SolutionPage({ solution }: { solution: Solution }) {
-  const Icon = solution.icon;
+  const connectedAreas: { slug?: string; label: string; icon: LucideIcon }[] = [
+    ...solutions.map(({ slug, navLabel, icon }) => ({ slug, label: navLabel, icon })),
+    { label: "Estoque", icon: Package },
+    { label: "Financeiro", icon: WalletCards },
+    { label: "Fiscal", icon: FileCheck2 },
+  ];
   return (
     <main id="conteudo">
       <section className="overflow-hidden bg-mist py-16 lg:py-24">
         <Container>
-          <a href="/#solucoes" className="text-sm font-semibold text-brand-700 hover:underline">← Todas as soluções</a>
-          <div className="mt-8 grid items-center gap-12 lg:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] lg:gap-16">
+          <a href="/#solucoes" className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-2 text-sm font-semibold text-brand-700 shadow-soft transition hover:border-brand-500 hover:bg-brand-50">
+            <ArrowLeft className="size-4" />
+            Explorar soluções
+          </a>
+          <div className="mt-7 grid items-center gap-12 lg:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] lg:gap-16">
             <div>
-              <span className="grid size-12 place-items-center rounded-xl bg-brand-gradient text-white"><Icon className="size-6" /></span>
-              <p className="mt-7 text-xs font-semibold uppercase tracking-[0.14em] text-brand-700">{solution.eyebrow}</p>
-              <h1 className="mt-3 max-w-xl font-hero text-4xl leading-[1.04] sm:text-5xl lg:text-[3.55rem]">{solution.title}</h1>
+              <h1 className="max-w-xl font-hero text-4xl leading-[1.04] sm:text-5xl lg:text-[3.55rem]">{solution.title}</h1>
               <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-ink-soft">{solution.description}</p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <ButtonLink href="/#contato" arrow>Solicitar demonstração</ButtonLink>
@@ -42,16 +51,6 @@ export function SolutionPage({ solution }: { solution: Solution }) {
           </div>
         </Container>
       </section>
-
-      <nav aria-label="Nesta página" className="border-y border-line bg-white">
-        <Container className="flex gap-6 overflow-x-auto py-4 text-sm font-semibold text-ink-soft">
-          <a className="shrink-0 hover:text-brand-700" href="#como-funciona">Como funciona</a>
-          <a className="shrink-0 hover:text-brand-700" href="#diferenciais">Diferenciais</a>
-          <a className="shrink-0 hover:text-brand-700" href="#resultados">Resultados</a>
-          <a className="shrink-0 hover:text-brand-700" href="#integracao">Plataforma conectada</a>
-          <a className="shrink-0 hover:text-brand-700" href="#faq">Dúvidas</a>
-        </Container>
-      </nav>
 
       <section id="como-funciona" className="py-24 lg:py-32">
         <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
@@ -86,8 +85,8 @@ export function SolutionPage({ solution }: { solution: Solution }) {
 
       <section id="integracao" className="bg-ink py-24 text-white lg:py-28">
         <Container className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-          <div><p className="text-xs font-semibold uppercase tracking-[0.14em] text-aqua">Uma plataforma conectada</p><h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Cada frente conversa com a próxima.</h2><p className="mt-5 leading-relaxed text-white/70">A Velozt foi pensada para ligar atendimento, pedidos, pagamentos e gestão no mesmo fluxo operacional.</p></div>
-          <div className="grid gap-3 sm:grid-cols-2">{solutions.map(({ slug, navLabel, icon: SolutionIcon }) => <a key={slug} href={`/solucoes/${slug}`} className={`flex items-center gap-4 rounded-xl border p-5 transition hover:bg-white/10 ${slug === solution.slug ? "border-aqua bg-white/10" : "border-white/15"}`}><span className="grid size-10 place-items-center rounded-lg bg-white/10 text-aqua"><SolutionIcon className="size-5" /></span><span className="font-semibold">{navLabel}</span></a>)}</div>
+          <div><p className="text-xs font-semibold uppercase tracking-[0.14em] text-aqua">Uma plataforma conectada</p><h2 className="mt-3 text-3xl font-semibold sm:text-4xl">A operação inteira, vista como um só negócio.</h2><p className="mt-5 leading-relaxed text-white/70">Atendimento, produção e caixa alimentam a gestão. E a mesma base ajuda a acompanhar estoque, financeiro e obrigações fiscais, sem depender de controles desconectados.</p></div>
+          <div className="grid gap-3 sm:grid-cols-2">{connectedAreas.map(({ slug, label, icon: AreaIcon }) => slug ? <a key={slug} href={`/solucoes/${slug}`} className={`flex items-center gap-4 rounded-xl border p-5 transition hover:bg-white/10 ${slug === solution.slug ? "border-aqua bg-white/10" : "border-white/15"}`}><span className="grid size-10 place-items-center rounded-lg bg-white/10 text-aqua"><AreaIcon className="size-5" /></span><span className="font-semibold">{label}</span></a> : <div key={label} className="flex items-center gap-4 rounded-xl border border-white/15 p-5"><span className="grid size-10 place-items-center rounded-lg bg-white/10 text-aqua"><AreaIcon className="size-5" /></span><span className="font-semibold">{label}</span></div>)}</div>
         </Container>
       </section>
 
