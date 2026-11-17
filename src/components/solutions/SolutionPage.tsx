@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowLeft, ArrowRight, Check, CircleHelp, FileCheck2, Package, WalletCards } from "lucide-react";
+import { Check, CircleHelp, FileCheck2, Package, WalletCards } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import type { Solution } from "@/content/solutions";
 import { solutions } from "@/content/solutions";
@@ -34,17 +34,12 @@ export function SolutionPage({ solution }: { solution: Solution }) {
     <main id="conteudo">
       <section className="overflow-hidden bg-mist py-16 lg:py-24">
         <Container>
-          <a href="/#solucoes" className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-4 py-2 text-sm font-semibold text-brand-700 shadow-soft transition hover:border-brand-500 hover:bg-brand-50">
-            <ArrowLeft className="size-4" />
-            Explorar soluções
-          </a>
-          <div className="mt-7 grid items-center gap-12 lg:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] lg:gap-16">
+          <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] lg:gap-16">
             <div>
               <h1 className="max-w-xl font-hero text-4xl leading-[1.04] sm:text-5xl lg:text-[3.55rem]">{solution.title}</h1>
               <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-ink-soft">{solution.description}</p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <ButtonLink href="/#contato" arrow>Solicitar demonstração</ButtonLink>
-                <a href="#como-funciona" className="inline-flex h-12 items-center rounded-xl px-4 font-semibold text-brand-700 hover:bg-brand-50">Ver como funciona <ArrowRight className="ml-2 size-4" /></a>
               </div>
             </div>
             <PhotoSlot solution={solution} />
