@@ -50,10 +50,10 @@ export const features: Feature[] = [
 
 export const faqs = [
   { q: "O que é a Velozt?", a: "A Velozt é uma plataforma de PDV e gestão para Food Service. Ela reúne mesas, comandas, pedidos, produção, pagamentos, clientes, estoque e financeiro em um só lugar." },
-  { q: "Para quais estabelecimentos a plataforma é indicada?", a: "Para restaurantes que trabalham com atendimento em mesas e comandas, e para operações de alimentação com atendimento presencial." },
+  { q: "Para quais operações a plataforma é indicada?", a: "A Velozt é indicada para operações de Food Service que buscam organizar atendimento, pedidos, produção, pagamentos e gestão em um só lugar." },
   { q: "Como funciona o gerenciamento de mesas e comandas?", a: "Você abre e acompanha as mesas, pode ter várias comandas na mesma mesa ou comandas individuais, transferir itens e comandas entre mesas e acompanhar o status de cada mesa." },
-  { q: "É possível dividir uma conta?", a: "Sim. A Velozt permite dividir contas, receber pagamentos fracionados e registrar diferentes formas de pagamento, com cálculo de troco e pré-conta para conferência." },
-  { q: "Como funciona o envio de pedidos para a cozinha?", a: "Os pedidos são lançados com observações e modificadores e enviados por setor, como cozinha, bar e chapa, com impressão para cada um deles. Alterações e cancelamentos ficam registrados." },
+  { q: "Quais são os planos e preços da Velozt?", a: "Os planos e valores são apresentados conforme as necessidades da sua operação de Food Service. Solicite uma demonstração para que nossa equipe conheça sua rotina e indique a melhor opção." },
+  { q: "Como funciona a contratação e implantação?", a: "Após entender as necessidades da sua operação, nossa equipe orienta as próximas etapas de contratação, configuração e início de uso da plataforma." },
   { q: "A plataforma permite controlar diferentes usuários?", a: "Sim. Há controle de acesso por usuário, permissões por função e autorização para operações sensíveis, como descontos e cancelamentos. Operadores e terminais são identificados." },
   { q: "Como funciona a emissão de NFC-e?", a: "A Velozt permite emitir NFC-e, consultar e cancelar documentos fiscais e organizar as informações fiscais dos produtos." },
   { q: "Como posso solicitar uma demonstração?", a: "Use o botão Solicitar demonstração, preencha o formulário de contato e nossa equipe retornará para combinar a apresentação da plataforma." },

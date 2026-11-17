@@ -1,4 +1,6 @@
-import type { ReactNode } from "react";
+"use client";
+
+import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SectorChip } from "@/components/mockups/mock-ui";
@@ -192,17 +194,48 @@ const items: { key: string; title: string; text: string; span: string }[] = [
 ];
 
 export function Differentials() {
+  const gridRef = useRef<HTMLUListElement>(null);
+
+  useEffect(() => {
+    const grid = gridRef.current;
+    if (!grid) return;
+
+    const cards = Array.from(grid.querySelectorAll<HTMLElement>(".differential-card"));
+    grid.dataset.cardsReady = "";
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const card = entry.target as HTMLElement;
+          card.dataset.cardInView = "";
+          observer.unobserve(card);
+        });
+      },
+      { rootMargin: "0px 0px -12%", threshold: 0.15 },
+    );
+
+    cards.forEach((card) => observer.observe(card));
+
+    return () => {
+      observer.disconnect();
+      delete grid.dataset.cardsReady;
+      cards.forEach((card) => delete card.dataset.cardInView);
+    };
+  }, []);
+
   return (
     <section id="diferenciais" aria-labelledby="diferenciais-titulo" className="py-24 lg:py-32">
       <Container>
         <SectionHeading id="diferenciais-titulo" title="Gestão organizada em cada detalhe.">
           Da rotina do salão ao financeiro, a Velozt conecta o que move seu Food Service para você operar melhor e crescer com segurança.
         </SectionHeading>
-        <ul className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-6">
-          {items.map((d) => (
+        <ul ref={gridRef} className="differentials-grid mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-6">
+          {items.map((d, index) => (
             <li
               key={d.key}
-              className={`flex flex-col justify-between gap-8 rounded-2xl border border-line bg-white p-7 shadow-soft ${d.span}`}
+              className={`differential-card flex flex-col justify-between gap-8 rounded-2xl border border-line bg-white p-7 shadow-soft ${d.span}`}
+              style={{ "--reveal-delay": `${(index % 2) * 280}ms` } as CSSProperties}
             >
               <div>
                 <h3 className="text-xl font-semibold leading-snug">{d.title}</h3>
