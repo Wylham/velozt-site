@@ -9,6 +9,7 @@ import { Features } from "@/components/sections/Features";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { Hero } from "@/components/sections/Hero";
 import { Platform } from "@/components/sections/Platform";
+import { Plans } from "@/components/sections/Plans";
 import { faqs } from "@/content";
 import { site } from "@/config/site";
 
@@ -52,6 +53,7 @@ export default function Home() {
         <Devices />
         <Audience />
         <Differentials />
+        <Plans />
         <Faq />
         <FinalCta />
       </main>

@@ -26,7 +26,7 @@ export const solutions: Solution[] = [
     title: "Um salão mais fluido, da primeira mesa à conta final.",
     description: "Organize mesas, comandas e atendimento para sua equipe trabalhar com ritmo e segurança.",
     intro:
-      "A Velozt reúne a visão do salão e o histórico de cada comanda em uma tela clara. A equipe sabe o que está aberto, o que foi pedido e o que precisa acontecer a seguir — sem depender de papel ou memória.",
+      "A Velozt reúne a visão do salão e o histórico de cada comanda em uma tela clara. A equipe sabe o que está aberto, o que foi pedido e o que precisa acontecer a seguir sem depender de papel ou memória.",
     icon: LayoutGrid,
     screen: "mesas",
     imageFile: "salao-e-comandas.jpg",
@@ -208,7 +208,7 @@ export const solutions: Solution[] = [
     differentiators: [
       {
         title: "Informação que vem da operação",
-        text: "Os dados acompanham o que acontece no salão, nos pedidos e no caixa — sem depender de controles isolados.",
+        text: "Os dados acompanham o que acontece no salão, nos pedidos e no caixa sem depender de controles isolados.",
       },
       {
         title: "Conferência mais objetiva",

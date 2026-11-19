@@ -29,12 +29,12 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-white/85 backdrop-blur-md transition-shadow ${scrolled || open ? "shadow-[0_1px_0_var(--color-line)]" : ""}`}
+      className={`sticky top-0 z-50 bg-white/75 backdrop-blur-md transition-shadow ${scrolled || open ? "shadow-[0_1px_0_var(--color-line)]" : ""}`}
     >
       <div className="flex h-[70px] w-full items-center justify-between px-5 sm:px-8 lg:px-16">
         <div className="flex min-w-0 items-center gap-9">
           <a href="/#inicio" aria-label="Velozt, ir para o início" className="shrink-0">
-            <Logo height={25} />
+            <Logo height={22} />
           </a>
           <nav aria-label="Principal" className="hidden items-center gap-7 lg:flex">
             {site.nav.map((n) =>

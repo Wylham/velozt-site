@@ -19,6 +19,7 @@ export const site = {
     { label: "Soluções", href: "/solucoes/salao-e-comandas" },
     { label: "Plataforma", href: "/#plataforma" },
     { label: "Diferenciais", href: "/#diferenciais" },
+    { label: "Planos", href: "/#planos" },
     { label: "Contato", href: "/#contato" },
   ],
 } as const;

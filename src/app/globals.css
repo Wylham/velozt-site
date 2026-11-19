@@ -68,6 +68,28 @@ p {
     color: transparent;
 }
 
+.plan-highlighted {
+    box-shadow:
+        0 0 0 1px rgb(8 121 232 / 45%),
+        0 0 20px -6px rgb(8 121 232 / 45%);
+}
+
+.plan-frequency-pill {
+    animation: plan-frequency-enter 0.25s ease-out both;
+}
+
+@keyframes plan-frequency-enter {
+    from {
+        opacity: 0;
+        transform: scale(0.82);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 /* Abertura da página: única sequência orquestrada (hero). */
 @keyframes rise {
     from {
