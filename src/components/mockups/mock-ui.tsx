@@ -47,7 +47,7 @@ export function Btn({ children, primary = false, large = false, className = "" }
   );
 }
 
-export function BarChart({ labels, values, height = 140, money }: { labels: string[]; values: number[]; height?: number; money: (n: number) => string }) {
+export function BarChart({ labels, values, height = 140, money, animate = false }: { labels: string[]; values: number[]; height?: number; money: (n: number) => string; animate?: boolean }) {
   const max = Math.max(...values);
   return (
     <div className="flex items-end gap-2.5" style={{ height }}>
@@ -57,8 +57,8 @@ export function BarChart({ labels, values, height = 140, money }: { labels: stri
           <div key={labels[i]} className="flex h-full flex-1 flex-col justify-end gap-1.5">
             <span className={`text-center text-[9.5px] tabular-nums ${last ? "font-semibold text-brand-700" : "text-ink-mute"}`}>{money(v)}</span>
             <div
-              className={`rounded-t-md ${last ? "bg-gradient-to-t from-brand-700 to-aqua" : "bg-brand-100"}`}
-              style={{ height: `${(v / max) * (height - 38)}px` }}
+              className={`rounded-t-md ${last ? "bg-gradient-to-t from-brand-700 to-aqua" : "bg-brand-100"} ${animate ? "chart-bar-enter" : ""}`}
+              style={{ height: `${(v / max) * (height - 38)}px`, animationDelay: animate ? `${340 + i * 65}ms` : undefined }}
             />
             <span className={`text-center text-[10px] ${last ? "font-semibold text-ink" : "text-ink-mute"}`}>{labels[i]}</span>
           </div>

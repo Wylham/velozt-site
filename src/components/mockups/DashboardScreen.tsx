@@ -1,16 +1,49 @@
+"use client";
+
 import { AppShell } from "./AppShell";
 import { BarChart, Card, Row, SectorChip } from "./mock-ui";
 import { avgTicket, byMethod, occupiedTables, openTotal, production, revenue, sales, tableNumbers, tableStatus, tableTotal, weekLabels, weekValues } from "@/lib/demo-data";
 import { brl } from "@/lib/format";
+import { useEffect, useState } from "react";
 
 const short = (n: number) => `${Math.round(n / 100)}`;
 
-export function DashboardScreen() {
+function CountUp({ value, format, animate }: { value: number; format: (value: number) => string; animate: boolean }) {
+  const [current, setCurrent] = useState(animate ? 0 : value);
+
+  useEffect(() => {
+    if (!animate || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setCurrent(value);
+      return;
+    }
+
+    let frame = 0;
+    const delay = window.setTimeout(() => {
+      const start = performance.now();
+      const duration = 1400;
+      const tick = (now: number) => {
+        const progress = Math.min((now - start) / duration, 1);
+        setCurrent(Math.round(value * (1 - Math.pow(1 - progress, 4))));
+        if (progress < 1) frame = window.requestAnimationFrame(tick);
+      };
+      frame = window.requestAnimationFrame(tick);
+    }, 270);
+
+    return () => {
+      window.clearTimeout(delay);
+      window.cancelAnimationFrame(frame);
+    };
+  }, [animate, value]);
+
+  return <>{format(current)}</>;
+}
+
+export function DashboardScreen({ animate = false }: { animate?: boolean }) {
   const kpis = [
-    { label: "Vendas de hoje", value: brl(revenue), hint: `${sales.length} comandas fechadas` },
-    { label: "Ticket médio", value: brl(avgTicket), hint: "por comanda fechada" },
-    { label: "Em aberto", value: brl(openTotal), hint: `${occupiedTables} de ${tableNumbers.length} mesas ocupadas` },
-    { label: "Na produção", value: String(production.length), hint: "pedidos em andamento" },
+    { label: "Vendas de hoje", value: revenue, format: brl, hint: `${sales.length} comandas fechadas` },
+    { label: "Ticket médio", value: avgTicket, format: brl, hint: "por comanda fechada" },
+    { label: "Em aberto", value: openTotal, format: brl, hint: `${occupiedTables} de ${tableNumbers.length} mesas ocupadas` },
+    { label: "Na produção", value: production.length, format: String, hint: "pedidos em andamento" },
   ];
   return (
     <AppShell active="dashboard" title="Painel" subtitle="Resumo da operação de hoje">
@@ -19,7 +52,7 @@ export function DashboardScreen() {
           {kpis.map((k) => (
             <div key={k.label} className="rounded-xl border border-line bg-white px-3.5 py-3">
               <div className="text-[11px] text-ink-mute">{k.label}</div>
-              <div className="mt-1 font-display text-[21px] font-semibold tabular-nums leading-none">{k.value}</div>
+              <div className="mt-1 font-display text-[21px] font-semibold tabular-nums leading-none"><CountUp value={k.value} format={k.format} animate={animate} /></div>
               <div className="mt-1.5 text-[10.5px] text-ink-mute">{k.hint}</div>
             </div>
           ))}
@@ -27,7 +60,7 @@ export function DashboardScreen() {
         <div className="grid min-h-0 flex-1 grid-cols-[1.45fr_1fr] gap-3">
           <div className="flex min-h-0 flex-col gap-3">
             <Card title="Vendas dos últimos 7 dias" aside="R$">
-              <BarChart labels={weekLabels} values={weekValues} height={150} money={short} />
+              <BarChart labels={weekLabels} values={weekValues} height={150} money={short} animate={animate} />
             </Card>
             <Card title="Na produção" aside="Por setor" className="flex-1">
               {production.slice(0, 3).map((p) => (

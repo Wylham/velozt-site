@@ -176,15 +176,82 @@ p {
     transform: rotate(-1.7deg);
 }
 
-/* Em telas amplas, o hero cresce de forma contínua, sem salto de breakpoint. */
+/* Hero: a mensagem abre espaço para o produto, que vira a prova central logo abaixo. */
 @media (min-width: 1024px) {
     .hero-content {
-        max-width: clamp(1200px, calc(50vw + 390px), 1500px);
-        column-gap: clamp(2.5rem, calc(1.25rem + 2vw), 4rem);
+        max-width: clamp(1200px, calc(50vw + 420px), 1400px);
     }
 
     .hero-title {
-        font-size: clamp(3.4rem, calc(2.68rem + 1.125vw), 4rem);
+        font-size: clamp(3.75rem, calc(3rem + 1vw), 4.5rem);
+    }
+
+    .hero-copy {
+        max-width: 46rem;
+    }
+
+    .hero-product .anim-rise > div:first-child {
+        box-shadow: 0 4px 10px rgb(17 24 39 / 0.06), 0 38px 78px -30px rgb(0 66 191 / 0.42);
+    }
+}
+
+.hero-product-glow {
+    position: absolute;
+    z-index: -1;
+    top: 4%;
+    right: 5%;
+    width: 68%;
+    aspect-ratio: 1;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgb(0 184 232 / 0.14) 0%, rgb(8 121 232 / 0.09) 38%, transparent 70%);
+    filter: blur(12px);
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .hero-dashboard--pending main > div > div:first-child,
+    .hero-dashboard--pending main > div > div:nth-child(2) > div {
+        opacity: 0;
+    }
+
+    .hero-dashboard--active main > div > div:first-child,
+    .hero-dashboard--active main > div > div:nth-child(2) > div {
+        animation: hero-dashboard-in 0.82s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .hero-dashboard--active main > div > div:first-child { animation-delay: 0ms; }
+    .hero-dashboard--active main > div > div:nth-child(2) > div:first-child { animation-delay: 0.1s; }
+    .hero-dashboard--active main > div > div:nth-child(2) > div:last-child { animation-delay: 0.2s; }
+}
+
+@keyframes hero-dashboard-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.99);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .chart-bar-enter {
+        transform-origin: bottom;
+        animation: chart-bar-enter 0.72s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+}
+
+@keyframes chart-bar-enter {
+    from {
+        opacity: 0;
+        transform: scaleY(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scaleY(1);
     }
 }
 
