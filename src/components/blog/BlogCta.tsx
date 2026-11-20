@@ -5,7 +5,7 @@ export function BlogCta() {
   return (
     <section aria-labelledby="blog-cta-titulo" className="bg-brand-gradient py-20 text-white lg:py-24">
       <Container className="text-center">
-        <h2 id="blog-cta-titulo" className="mx-auto max-w-2xl font-display text-3xl font-semibold sm:text-4xl">
+        <h2 id="blog-cta-titulo" className="mx-auto max-w-2xl font-hero text-3xl font-semibold sm:text-4xl">
           Quer saber mais? Fale com a gente.
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-[17px] leading-relaxed text-white/85">

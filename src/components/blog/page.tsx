@@ -48,7 +48,7 @@ export default async function BlogPostRoute({ params }: { params: Promise<{ slug
                   Voltar ao blog
                 </Link>
                 <PostMeta post={post} className="mt-8" />
-                <h1 className="mt-4 font-hero text-4xl leading-[1.06] sm:text-5xl">{post.title}</h1>
+                <h1 className="mt-4 font-hero text-4xl font-semibold leading-[1.06] sm:text-5xl">{post.title}</h1>
                 <p className="mt-5 max-w-2xl text-[17px] leading-relaxed text-ink-soft">{post.excerpt}</p>
                 <p className="mt-6 text-[14px] text-ink-mute">
                   Por {post.author}, em <time dateTime={post.date}>{formatDate(post.date)}</time>. {post.readingTime}.
@@ -68,7 +68,7 @@ export default async function BlogPostRoute({ params }: { params: Promise<{ slug
               {post.sections.map((section, i) => (
                 <section key={section.heading ?? i}>
                   {section.heading && (
-                    <h2 className="mt-12 text-2xl font-semibold sm:text-[1.7rem]">{section.heading}</h2>
+                    <h2 className="mt-12 font-hero text-2xl font-semibold sm:text-[1.7rem]">{section.heading}</h2>
                   )}
                   {section.paragraphs.map((text) => (
                     <p key={text} className="mt-5 text-[16.5px] leading-relaxed text-ink-soft">

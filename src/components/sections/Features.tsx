@@ -32,7 +32,9 @@ export function Features() {
             }
           />
           <div role="tabpanel" id="feat-panel" aria-labelledby={`feat-tab-${current.id}`} className="min-w-0">
-            <h3 className="max-w-2xl text-2xl font-semibold leading-snug sm:text-[1.7rem]">{current.headline}</h3>
+            <h3 className="max-w-2xl font-hero text-2xl leading-snug sm:text-[1.7rem]">
+              {current.headline}
+            </h3>
             <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2">
               {current.highlights.map((h) => (
                 <li key={h} className="flex items-start gap-3 text-[15.5px] text-ink-soft">

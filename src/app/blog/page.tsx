@@ -18,7 +18,7 @@ export default function BlogPage() {
       <main id="conteudo">
         <section className="bg-mist pb-10 pt-14 lg:pb-12 lg:pt-20">
           <Container>
-            <h1 className="font-hero text-4xl leading-[1.04] sm:text-5xl lg:text-[3.55rem]">Blog Posts</h1>
+            <h1 className="font-hero text-4xl font-semibold leading-[1.04] sm:text-5xl lg:text-[3.55rem]">Blog Posts</h1>
             <p className="mt-5 max-w-xl text-[17px] leading-relaxed text-ink-soft">
               Atualizações, dicas e conteúdos para organizar a rotina do seu Food Service.
             </p>

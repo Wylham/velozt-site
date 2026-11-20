@@ -59,7 +59,7 @@ export function Plans() {
       <Container>
         <div className="flex w-full flex-col items-center justify-center space-y-5">
           <div className="mx-auto max-w-xl space-y-2">
-            <h2 id="planos-titulo" className="text-center text-3xl font-semibold tracking-tight sm:text-4xl lg:text-[2.6rem]">
+            <h2 id="planos-titulo" className="font-hero text-center text-3xl font-semibold tracking-tight sm:text-4xl lg:text-[2.6rem]">
               Planos para cada momento do seu negócio.
             </h2>
             <p className="text-center text-[16px] leading-relaxed text-ink-soft">

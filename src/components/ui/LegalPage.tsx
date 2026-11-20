@@ -10,7 +10,7 @@ export function LegalPage({ title, children }: { title: string; children: ReactN
       <main>
         <Container className="py-20 lg:py-28">
           <div className="max-w-3xl">
-            <h1 className="text-4xl font-semibold">{title}</h1>
+            <h1 className="font-hero text-4xl font-semibold">{title}</h1>
             <div className="mt-8 space-y-5 text-[16.5px] leading-relaxed text-ink-soft">{children}</div>
           </div>
         </Container>

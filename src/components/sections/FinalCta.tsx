@@ -12,7 +12,7 @@ export function FinalCta() {
         <div>
           <h2
             id="contato-titulo"
-            className="max-w-xl font-display text-3xl font-semibold leading-[1.12] sm:text-4xl lg:text-[2.6rem]"
+            className="max-w-xl font-hero text-3xl font-semibold leading-[1.12] sm:text-4xl lg:text-[2.6rem]"
           >
             Leve mais organização à rotina do seu Foodservice.
           </h2>
