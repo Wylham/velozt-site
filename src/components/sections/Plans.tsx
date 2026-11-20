@@ -102,7 +102,7 @@ function PricingCard({ plan, frequency }: { plan: Plan; frequency: Frequency }) 
         {plan.features.map((feature) => <div key={feature.text} className="flex items-center gap-2"><CheckCircleIcon className="size-4 shrink-0 text-ink" aria-hidden /><p title={feature.tooltip} className={feature.tooltip ? "cursor-help border-b border-dashed border-ink-mute" : ""}>{feature.text}</p></div>)}
       </div>
       <div className={`mt-auto w-full border-t border-line p-3 ${plan.highlighted ? "bg-brand-50/60" : ""}`}>
-        <ButtonLink href="#contato" variant={plan.highlighted ? "primary" : "secondary"} size="sm" className="w-full">Solicitar demonstração</ButtonLink>
+        <ButtonLink href="/contato" variant={plan.highlighted ? "primary" : "secondary"} size="sm" className="w-full">Solicitar demonstração</ButtonLink>
       </div>
     </article>
   );

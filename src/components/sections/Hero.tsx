@@ -48,8 +48,8 @@ export function Hero() {
             Centralize atendimento, pedidos, estoque e financeiro em uma plataforma desenvolvida para simplificar e fazer crescer o seu Food Service.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="#plataforma" variant="secondary">Conhecer a plataforma</ButtonLink>
-            <ButtonLink href="#contato">Solicitar demonstração</ButtonLink>
+            <ButtonLink href="/plataforma" variant="secondary">Conhecer a plataforma</ButtonLink>
+            <ButtonLink href="/contato">Solicitar demonstração</ButtonLink>
           </div>
         </div>
 

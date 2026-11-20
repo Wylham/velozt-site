@@ -39,7 +39,7 @@ export function SolutionPage({ solution }: { solution: Solution }) {
               <h1 className="max-w-xl font-hero text-4xl leading-[1.04] sm:text-5xl lg:text-[3.55rem]">{solution.title}</h1>
               <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-ink-soft">{solution.description}</p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <ButtonLink href="/#contato" arrow>Solicitar demonstração</ButtonLink>
+                <ButtonLink href="/contato" arrow>Solicitar demonstração</ButtonLink>
               </div>
             </div>
             <PhotoSlot solution={solution} />
@@ -89,7 +89,7 @@ export function SolutionPage({ solution }: { solution: Solution }) {
         <Container className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20"><div><span className="grid size-11 place-items-center rounded-xl bg-brand-50 text-brand-700"><CircleHelp className="size-5" /></span><h2 className="mt-5 text-3xl font-semibold">Dúvidas sobre {solution.navLabel.toLowerCase()}?</h2></div><div className="divide-y divide-line border-y border-line">{solution.faqs.map(({ q, a }) => <details key={q} className="group py-5"><summary className="cursor-pointer list-none pr-8 font-display text-[17px] font-medium marker:content-none">{q}<span className="float-right text-brand-600 transition group-open:rotate-45">+</span></summary><p className="mt-4 max-w-2xl leading-relaxed text-ink-soft">{a}</p></details>)}</div></Container>
       </section>
 
-      <section className="bg-brand-gradient py-20 text-white lg:py-24"><Container className="text-center"><p className="text-sm font-semibold uppercase tracking-[0.14em] text-white/70">Conheça a Velozt na prática</p><h2 className="mx-auto mt-3 max-w-2xl text-3xl font-semibold sm:text-4xl">Veja como essa solução pode se encaixar na rotina do seu restaurante.</h2><ButtonLink href="/#contato" variant="light" arrow className="mt-8">Solicitar demonstração</ButtonLink></Container></section>
+      <section className="bg-brand-gradient py-20 text-white lg:py-24"><Container className="text-center"><p className="text-sm font-semibold uppercase tracking-[0.14em] text-white/70">Conheça a Velozt na prática</p><h2 className="mx-auto mt-3 max-w-2xl text-3xl font-semibold sm:text-4xl">Veja como essa solução pode se encaixar na rotina do seu restaurante.</h2><ButtonLink href="/contato" variant="light" arrow className="mt-8">Solicitar demonstração</ButtonLink></Container></section>
     </main>
   );
 }

@@ -15,11 +15,12 @@ export const site = {
     { label: "LinkedIn", href: process.env.NEXT_PUBLIC_LINKEDIN_URL || "" },
   ].filter((s) => s.href),
   nav: [
-    { label: "Início", href: "/#inicio" },
+    { label: "Início", href: "/" },
     { label: "Soluções", href: "/solucoes/salao-e-comandas" },
-    { label: "Plataforma", href: "/#plataforma" },
-    { label: "Diferenciais", href: "/#diferenciais" },
-    { label: "Planos", href: "/#planos" },
-    { label: "Contato", href: "/#contato" },
+    { label: "Plataforma", href: "/plataforma" },
+    { label: "Diferenciais", href: "/diferenciais" },
+    { label: "Planos", href: "/planos" },
+    { label: "Contato", href: "/contato" },
+    { label: "Blog", href: "/blog" },
   ],
 } as const;

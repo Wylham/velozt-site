@@ -33,7 +33,7 @@ export function Header() {
     >
       <div className="flex h-[70px] w-full items-center justify-between px-5 sm:px-8 lg:px-16">
         <div className="flex min-w-0 items-center gap-9">
-          <a href="/#inicio" aria-label="Velozt, ir para o início" className="shrink-0">
+          <a href="/" aria-label="Velozt, ir para o início" className="shrink-0">
             <Logo height={22} />
           </a>
           <nav aria-label="Principal" className="hidden items-center gap-7 lg:flex">
@@ -95,7 +95,7 @@ export function Header() {
         </div>
         <div className="flex items-center gap-2">
           <div className="hidden sm:block">
-            <ButtonLink href="/#contato" size="sm">
+            <ButtonLink href="/contato" size="sm">
               Solicitar demonstração
             </ButtonLink>
           </div>
@@ -144,7 +144,7 @@ export function Header() {
                 </a>
               ),
             )}
-            <ButtonLink href="/#contato" className="mt-4 w-full">
+            <ButtonLink href="/contato" className="mt-4 w-full">
               Solicitar demonstração
             </ButtonLink>
           </Container>
