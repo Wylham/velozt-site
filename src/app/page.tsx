@@ -16,7 +16,7 @@ import { site } from "@/config/site";
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "Organization", name: site.name, url: site.url, logo: `${site.url}/brand/icongradient-velozt.webp` },
+    { "@type": "Organization", name: site.name, url: site.url, logo: `${site.url}/brand/icongradient-velozt.svg` },
     {
       "@type": "SoftwareApplication",
       name: site.name,

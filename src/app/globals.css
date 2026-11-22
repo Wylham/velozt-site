@@ -303,3 +303,82 @@ p {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* Mega menu de Soluções ---------------------------------------------------
+   Separadores: linha cinza com um traço azul que "desenha" ao abrir o menu,
+   um brilho que atravessa a linha uma vez e, no hover da coluna, o azul
+   preenche a linha inteira. Fica em @layer components para que utilitários
+   do Tailwind (ex.: `absolute`, `mt-4`) continuem valendo. */
+@layer components {
+    .mega-sep {
+        position: relative;
+        display: block;
+        height: 1px;
+        overflow: hidden;
+        background: var(--color-line);
+    }
+
+    .mega-sep::before,
+    .mega-sep::after {
+        position: absolute;
+        inset-block: 0;
+        left: 0;
+        content: "";
+    }
+
+    .mega-sep::before {
+        width: 100%;
+        background: linear-gradient(90deg, #0a5fd6 0%, #0879e8 45%, #00b8e8 100%);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1) var(--sep-delay, 0ms);
+    }
+
+    .mega-sep::after {
+        width: 35%;
+        background: linear-gradient(90deg, transparent, rgb(0 184 232 / 0.95), transparent);
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    [data-open="true"] .mega-sep::before,
+    .mega-sep-static::before {
+        transform: scaleX(0.2);
+    }
+
+    [data-open="true"] .mega-sep::after {
+        animation: mega-sep-sweep 1.4s cubic-bezier(0.4, 0, 0.2, 1) var(--sep-delay, 0ms) both;
+    }
+
+    [data-open="true"] .mega-col:hover .mega-sep::before,
+    [data-open="true"] .mega-footer:hover .mega-sep::before {
+        transform: scaleX(1);
+        transition-delay: 0ms;
+        transition-duration: 0.55s;
+    }
+
+    [data-open="true"] .mega-item {
+        animation: mega-item-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) var(--item-delay, 0ms) both;
+    }
+}
+
+@keyframes mega-sep-sweep {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(300%);
+    }
+}
+
+@keyframes mega-item-in {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+}
