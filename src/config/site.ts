@@ -14,13 +14,75 @@ export const site = {
     { label: "Instagram", href: process.env.NEXT_PUBLIC_INSTAGRAM_URL || "" },
     { label: "LinkedIn", href: process.env.NEXT_PUBLIC_LINKEDIN_URL || "" },
   ].filter((s) => s.href),
+  // Navegação principal (header). "Soluções" abre o mega menu definido em `solutionsMenu`.
   nav: [
+    { label: "Soluções", href: "/solucoes/salao-e-comandas" },
+    { label: "Preço", href: "/planos" },
+    { label: "Contato", href: "/contato" },
+    { label: "Blog", href: "/blog" },
+  ],
+  // O rodapé mantém o mapa completo do site.
+  footerNav: [
     { label: "Início", href: "/" },
     { label: "Soluções", href: "/solucoes/salao-e-comandas" },
     { label: "Plataforma", href: "/plataforma" },
     { label: "Diferenciais", href: "/diferenciais" },
-    { label: "Planos", href: "/planos" },
+    { label: "Preço", href: "/planos" },
     { label: "Contato", href: "/contato" },
     { label: "Blog", href: "/blog" },
   ],
+  solutionsMenu: {
+    columns: [
+      {
+        title: "No atendimento",
+        items: [
+          {
+            label: "Salão e comandas",
+            href: "/solucoes/salao-e-comandas",
+            description: "Mesas e comandas sem perder o histórico.",
+          },
+          {
+            label: "Pedidos e produção",
+            href: "/solucoes/pedidos-e-producao",
+            description: "Pedidos claros para cozinha, bar e chapa.",
+          },
+        ],
+      },
+      {
+        title: "No fechamento e na gestão",
+        items: [
+          {
+            label: "Caixa e pagamentos",
+            href: "/solucoes/caixa-e-pagamentos",
+            description: "Divida contas e feche o caixa com controle.",
+          },
+          {
+            label: "Gestão e relatórios",
+            href: "/solucoes/gestao-e-relatorios",
+            description: "Vendas e movimentações para decidir melhor.",
+          },
+        ],
+      },
+      {
+        title: "Conheça a Velozt",
+        items: [
+          {
+            label: "Plataforma",
+            href: "/plataforma",
+            description: "Toda a operação conectada em um só lugar.",
+          },
+          {
+            label: "Diferenciais",
+            href: "/diferenciais",
+            description: "O que nos torna diferentes no Food Service.",
+          },
+        ],
+      },
+    ],
+    footer: {
+      label: "Fale com o nosso time",
+      description: "Mostramos a Velozt funcionando na rotina da sua operação.",
+      href: "/contato",
+    },
+  },
 } as const;

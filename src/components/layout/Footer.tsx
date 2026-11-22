@@ -24,7 +24,7 @@ export function Footer() {
         <nav aria-label="Rodapé">
           <h2 className="font-display text-[14px] font-semibold">Navegação</h2>
           <ul className="mt-4 space-y-2.5 text-[15px] text-ink-soft">
-            {site.nav.map((n) => (
+            {site.footerNav.map((n) => (
               <li key={n.href}>
                 <a href={n.href} className="hover:text-brand-700">
                   {n.label}
