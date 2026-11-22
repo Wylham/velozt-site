@@ -119,7 +119,7 @@ export function Header() {
 
             <div className="flex h-full min-w-0 items-center gap-9">
               <a href="/" aria-label="Velozt, ir para o início" className="shrink-0">
-                <Logo height={22} />
+                <Logo height={22} priority />
               </a>
               <nav aria-label="Principal" className="hidden h-full items-center gap-7 lg:flex">
                 {site.nav.map((n) =>
